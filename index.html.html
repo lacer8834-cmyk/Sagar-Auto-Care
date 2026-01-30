@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sagar Auto Care - Professional Auto Repair & Engineering (नेपालीमा)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Language Toggle - Moved down to accommodate appointment button */
+        .language-toggle {
+            position: fixed;
+            top: 85px; /* Lowered to make room for appointment button */
+            right: 20px;
+            z-index: 1001;
+            background: var(--accent-blue);
+            border-radius: 20px;
+            padding: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .lang-btn.active {
+            background: white;
+            color: var(--accent-blue);
+        }
+
+        /* Fixed Header */
+        header {
+            background-color: var(--dark-gray);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            border-bottom: 3px solid var(--nepali-red);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .logo-icon {
+            color: var(--nepali-red);
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            line-height: 1.2;
+            color: white;
+        }
+
+        .logo-text span {
+            color: var(--nepali-red);
+        }
+
+        .logo-text p {
+            font-size: 0.85rem;
+            color: var(--metallic-silver);
+        }
+
+        /* Top Right Appointment Button - NEW STYLES */
+        .top-appointment-btn {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            background-color: var(--nepali-red);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid var(--nepali-red);
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 1002;
+            box-shadow: 0 3px 10px rgba(220, 20, 60, 0.2);
+        }
+
+        .top-appointment-btn:hover {
+            background-color: transparent;
+            color: var(--nepali-red);
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 5px 15px rgba(220, 20, 60, 0.3);
+        }
+
+        /* Navigation */
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-left: auto;
+            margin-right: 150px; /* Space for appointment button */
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a:hover {
+            color: var(--nepali-red);
+        }
+
+        .nav-links a.active {
+            color: var(--nepali-red);
+        }
+
+        .nav-links a.active:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--nepali-red);
+        }
+
+        /* Header Book Appointment Button - Removed as we have top button now */
+        .header-book-btn {
+            display: none;
+        }
+
+        /* Mobile menu book button */
+        .mobile-book-btn {
+            background-color: var(--nepali-red);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid var(--nepali-red);
+            cursor: pointer;
+            font-size: 0.95rem;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .mobile-book-btn:hover {
+            background-color: transparent;
+            color: var(--nepali-red);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero h2 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h2 span {
+            color: var(--nepali-red);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-gray);
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--nepali-red);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            animation: fadeInUp 1s ease 0.4s both;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            max-width: fit-content;
+        }
+
+        .cta-button:hover {
+            background-color: #b3002d;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(220, 20, 60, 0.3);
+        }
+
+        /* 3D Garage Elements */
+        .garage-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .tool-animation {
+            position: absolute;
+            font-size: 2.5rem;
+            color: var(--metallic-silver);
+            opacity: 0.7;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .tool-1 { top: 20%; left: 10%; animation-delay: 0s; }
+        .tool-2 { top: 15%; right: 15%; animation-delay: 1s; }
+        .tool-3 { bottom: 25%; left: 15%; animation-delay: 2s; }
+        .tool-4 { bottom: 20%; right: 10%; animation-delay: 3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Vehicle Background Slideshow */
+        .vehicle-slideshow {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            width: 40%;
+            height: 40%;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(52, 152, 219, 0.3);
+            opacity: 0.9;
+        }
+
+        .vehicle-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .vehicle-slide.active {
+            opacity: 1;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--medium-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            color: white;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background-color: var(--nepali-red);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--nepali-red);
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--nepali-red);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        /* Problems & Solutions Section */
+        .problems-solutions {
+            padding: 80px 0;
+            background-color: var(--dark-gray);
+        }
+
+        /* Search Box */
+        .problem-search {
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--nepali-red);
+            font-size: 1.2rem;
+        }
+
+        #problemSearch {
+            width: 100%;
+            padding: 15px 20px 15px 50px;
+            background-color: var(--light-gray);
+            border: 2px solid var(--nepali-red);
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        #problemSearch:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.3);
+        }
+
+        .search-results {
+            margin-top: 10px;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            display: none;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .vehicle-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab-button {
+            background-color: var(--light-gray);
+            color: var(--text-gray);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+
+        .tab-button.active {
+            background-color: var(--nepali-red);
+            color: white;
+        }
+
+        .tab-button:hover:not(.active) {
+            background-color: var(--medium-gray);
+            transform: translateY(-2px);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .problem-accordion {
+            margin-bottom: 15px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .accordion-header {
+            background-color: var(--light-gray);
+            padding: 18px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: var(--medium-gray);
+        }
+
+        .accordion-header h4 {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .urgency-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 15px;
+        }
+
+        .high-urgency {
+            background-color: rgba(231, 76, 60, 0.2);
+            color: var(--accent-red);
+            border: 1px solid var(--accent-red);
+        }
+
+        .medium-urgency {
+            background-color: rgba(243, 156, 18, 0.2);
+            color: var(--accent-orange);
+            border: 1px solid var(--accent-orange);
+        }
+
+        .low-urgency {
+            background-color: rgba(46, 204, 113, 0.2);
+            color: var(--accent-green);
+            border: 1px solid var(--accent-green);
+        }
+
+        .accordion-icon {
+            color: var(--nepali-red);
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-content {
+            background-color: #2a2a2a;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .accordion-content.active {
+            padding: 25px;
+            max-height: 5000px;
+        }
+
+        .problem-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .detail-box {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--nepali-red);
+        }
+
+        .detail-box h5 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--nepali-red);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .detail-box ul {
+            padding-left: 20px;
+        }
+
+        .detail-box li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .detail-box li:before {
+            content: "•";
+            color: var(--nepali-red);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .solution-steps {
+            background-color: rgba(46, 204, 113, 0.1);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-green);
+            margin-top: 20px;
+        }
+
+        .step {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .step:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            background-color: var(--accent-green);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Quick Solutions Widget */
+        .quick-solutions-widget {
+            margin-top: 50px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--nepali-red);
+        }
+
+        .solution-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: var(--nepali-red);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group select,
+        .form-group textarea,
+        .form-group input {
+            padding: 12px;
+            background: var(--light-gray);
+            border: 1px solid #444;
+            border-radius: 4px;
+            color: var(--text-light);
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group select:focus,
+        .form-group textarea:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--nepali-red);
+            box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.3);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .solution-result {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(220, 20, 60, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-green);
+            display: none;
+        }
+
+        .solution-result h4 {
+            color: var(--accent-green);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .solution-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .solution-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 3px solid var(--nepali-red);
+        }
+
+        .solution-item h5 {
+            color: var(--nepali-red);
+            margin-bottom: 8px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--medium-gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+
+        .workshop-info {
+            text-align: center;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            border: 2px solid var(--nepali-red);
+        }
+
+        .workshop-icon {
+            font-size: 4rem;
+            color: var(--nepali-red);
+            margin-bottom: 20px;
+        }
+
+        .location-map {
+            height: 400px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 30px;
+            position: relative;
+            border: 3px solid var(--nepali-red);
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(26, 26, 26, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .map-overlay h3 {
+            color: var(--nepali-red);
+            margin-bottom: 15px;
+        }
+
+        /* Emergency Banner */
+        .emergency-banner {
+            background: linear-gradient(45deg, var(--accent-red), #c0392b);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+            border-radius: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+        }
+
+        /* Quick Contact */
+        .quick-contact {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+        }
+
+        .contact-bubble {
+            width: 60px;
+            height: 60px;
+            background: var(--nepali-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .contact-bubble:hover {
+            background: #b3002d;
+            transform: scale(1.1);
+        }
+
+        /* Appointment Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .appointment-modal {
+            background-color: var(--dark-gray);
+            width: 90%;
+            max-width: 600px;
+            border-radius: 10px;
+            overflow: hidden;
+            transform: translateY(50px);
+            transition: transform 0.5s;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--nepali-red);
+        }
+
+        .modal-overlay.active .appointment-modal {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            background-color: var(--nepali-red);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 6px;
+            background-color: var(--card-bg);
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--nepali-red);
+            box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.2);
+        }
+
+        .submit-btn {
+            background-color: var(--nepali-red);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: #b3002d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 20, 60, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #151515;
+            padding: 60px 0 30px;
+            border-top: 3px solid var(--nepali-red);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--nepali-red);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--nepali-red);
+        }
+
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-gray);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--nepali-red);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--light-gray);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+            
+            .main-nav {
+                margin-right: 140px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .vehicle-slideshow {
+                width: 50%;
+                height: 30%;
+            }
+            
+            .problem-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .top-appointment-btn {
+                display: none;
+            }
+            
+            .mobile-book-btn {
+                display: flex;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark-gray);
+                flex-direction: column;
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+                margin: 0;
+            }
+            
+            .main-nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+            
+            .nav-links li {
+                width: 100%;
+            }
+            
+            .nav-links a {
+                padding: 15px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                justify-content: space-between;
+            }
+            
+            .language-toggle {
+                top: 85px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .vehicle-slideshow {
+                display: none;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .quick-contact {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .solution-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .language-toggle {
+                top: 85px;
+                right: 10px;
+                padding: 5px;
+            }
+            
+            .lang-btn {
+                padding: 5px 12px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .vehicle-tabs {
+                flex-direction: column;
+            }
+            
+            .tab-button {
+                width: 100%;
+            }
+            
+            .quick-solutions-widget {
+                padding: 20px;
+            }
+            
+            .detail-box {
+                padding: 15px;
+            }
+            
+            .hero {
+                height: 80vh;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button class="lang-btn active" id="langEn">EN</button>
+        <button class="lang-btn" id="langNp">ने</button>
+    </div>
+
+    <!-- Fixed Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo" onclick="scrollToTop()">
+                <div class="logo-icon">
+                    <i class="fas fa-car-crash"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Sagar Auto Care</h1>
+                    <p>Professional Auto Repair & Engineering</p>
+                </div>
+            </div>
+
+            <!-- Top Right Appointment Button -->
+            <a href="#" class="top-appointment-btn book-appointment-btn">
+                <i class="fas fa-calendar-check"></i>
+                <span class="en-text">Book Now</span>
+                <span class="np-text">बुक गर्नुहोस्</span>
+            </a>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="main-nav" id="mainNav">
+                <ul class="nav-links">
+                    <li><a href="#home" class="active"><i class="fas fa-home"></i> <span class="en-text">Home</span><span class="np-text">गृहपृष्ठ</span></a></li>
+                    <li><a href="#services"><i class="fas fa-tools"></i> <span class="en-text">Services</span><span class="np-text">सेवाहरू</span></a></li>
+                    <li><a href="#problems-solutions"><i class="fas fa-wrench"></i> <span class="en-text">Problems & Solutions</span><span class="np-text">समस्याहरू र समाधान</span></a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> <span class="en-text">About</span><span class="np-text">हाम्रो बारेमा</span></a></li>
+                    <li><a href="#contact"><i class="fas fa-phone"></i> <span class="en-text">Contact</span><span class="np-text">सम्पर्क</span></a></li>
+                </ul>
+                <!-- Mobile book button -->
+                <a href="#" class="mobile-book-btn book-appointment-btn">
+                    <i class="fas fa-calendar-check"></i>
+                    <span class="en-text">Book Appointment</span>
+                    <span class="np-text">अपोइन्टमेन्ट बुक गर्नुहोस्</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="garage-container">
+            <!-- Animated Tools -->
+            <div class="tool-animation tool-1">
+                <i class="fas fa-wrench"></i>
+            </div>
+            <div class="tool-animation tool-2">
+                <i class="fas fa-screwdriver"></i>
+            </div>
+            <div class="tool-animation tool-3">
+                <i class="fas fa-tools"></i>
+            </div>
+            <div class="tool-animation tool-4">
+                <i class="fas fa-bolt"></i>
+            </div>
+            
+            <!-- Vehicle Slideshow -->
+            <div class="vehicle-slideshow">
+                <div class="vehicle-slide active" style="background-image: url('https://images.unsplash.com/photo-1551524165-6b6e5a6166f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="vehicle-slide" style="background-image: url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="vehicle-slide" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="vehicle-slide" style="background-image: url('https://images.unsplash.com/photo-1558636508-2b03cd4c8d1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+            </div>
+        </div>
+        
+        <div class="container hero-content">
+            <h2 class="en-text">Professional <span>Automobile Care</span> & Engineering Solutions</h2>
+            <h2 class="np-text">पेशेवर <span>अटोमोबाइल केयर</span> र इन्जिनियरिङ समाधान</h2>
+            
+            <div style="margin-bottom: 25px;"></div> <!-- Added one row gap -->
+            
+            <p class="en-text">Expert diagnostics and repair for cars, buses, and bikes in Nepal. Our state-of-the-art workshop uses advanced tools and techniques to identify and solve your vehicle problems quickly and efficiently.</p>
+            <p class="np-text">नेपालमा कार, बस, र बाइकको लागि विशेषज्ञ डायग्नोस्टिक्स र मर्मत। हाम्रो अत्याधुनिक वर्कशपले उन्नत उपकरण र प्रविधिहरू प्रयोग गरेर तपाईंको सवारी समस्याहरू चाँडै र कुशलतापूर्वक पहिचान गर्न र समाधान गर्न मद्दत गर्दछ।</p>
+            <a href="#quick-solutions" class="cta-button">
+                <i class="fas fa-lightbulb"></i>
+                <span class="en-text">Get Quick Solution</span>
+                <span class="np-text">द्रुत समाधान प्राप्त गर्नुहोस्</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="en-text">Our Services</h2>
+                <h2 class="np-text">हाम्रा सेवाहरू</h2>
+                <p class="en-text">Comprehensive automotive solutions for all vehicle types</p>
+                <p class="np-text">सबै प्रकारका सवारी साधनहरूको लागि व्यापक स्वचालित समाधान</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-engine"></i>
+                    </div>
+                    <h3 class="en-text">Engine Repair</h3>
+                    <h3 class="np-text">इन्जिन मर्मत</h3>
+                    <p class="en-text">Complete engine diagnostics, overhaul, and repair for all types of vehicles. We handle everything from minor tune-ups to complete engine replacements.</p>
+                    <p class="np-text">सबै प्रकारका सवारी साधनहरूको लागि पूर्ण इन्जिन डायग्नोस्टिक्स, ओभरहाल, र मर्मत। हामी सानो ट्यून-अपबाट पूर्ण इन्जिन प्रतिस्थापन सम्म सबै कुरा सम्हाल्छौं।</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="en-text">Electrical Diagnostics</h3>
+                    <h3 class="np-text">बिजुली डायग्नोस्टिक्स</h3>
+                    <p class="en-text">Advanced electrical system troubleshooting and repair. We fix battery issues, alternator problems, wiring faults, and electronic control modules.</p>
+                    <p class="np-text">उन्नत बिजुली प्रणाली समस्या निवारण र मर्मत। हामी ब्याट्री समस्या, अल्टरनेटर समस्या, वायरिंग गल्तीहरू, र इलेक्ट्रोनिक नियन्त्रण मोड्यूलहरू ठीक गर्छौं।</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3 class="en-text">Suspension Work</h3>
+                    <h3 class="np-text">सस्पेन्सन काम</h3>
+                    <p class="en-text">Professional suspension system repair and alignment services. We handle shock absorbers, struts, springs, and steering system repairs.</p>
+                    <p class="np-text">पेशेवर सस्पेन्सन प्रणाली मर्मत र अलाइनमेन्ट सेवाहरू। हामी शक अब्जर्बर, स्ट्रट्स, स्प्रिंग्स, र स्टियरिङ प्रणाली मर्मतहरू सम्हाल्छौं।</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <h3 class="en-text">Car Servicing</h3>
+                    <h3 class="np-text">कार सेवा</h3>
+                    <p class="en-text">Regular maintenance and servicing to keep your vehicle running smoothly. Oil changes, brake checks, filter replacements, and comprehensive inspections.</p>
+                    <p class="np-text">तपाईंको सवारी साधन सहज रूपमा चलाइराख्न नियमित मर्मत र सेवा। तेल परिवर्तन, ब्रेक जाँच, फिल्टर प्रतिस्थापन, र व्यापक निरीक्षण।</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="en-text">Engineering Solutions</h3>
+                    <h3 class="np-text">इन्जिनिङ समाधान</h3>
+                    <p class="en-text">Custom engineering solutions for specialized vehicles and complex mechanical problems. We design and implement tailored solutions for unique automotive challenges.</p>
+                    <p class="np-text">विशेष सवारी साधनहरू र जटिल यान्त्रिक समस्याहरूको लागि अनुकूल इन्जिनियरिङ समाधान। हामी अद्वितीय स्वचालित चुनौतिहरूको लागि अनुकूलित समाधानहरू डिजाइन र कार्यान्वयन गर्छौं।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems & Solutions Section -->
+    <section class="problems-solutions" id="problems-solutions">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="en-text">Vehicle Problems & Solutions</h2>
+                <h2 class="np-text">सवारी समस्याहरू र समाधान</h2>
+                <p class="en-text">Identify your vehicle issue and find the right solution</p>
+                <p class="np-text">आफ्नो सवारी समस्या पहिचान गर्नुहोस् र सही समाधान पाउनुहोस्</p>
+            </div>
+            
+            <!-- Search Box -->
+            <div class="problem-search">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="problemSearch" class="en-text" placeholder="Search for specific problems (e.g., 'engine overheating', 'brake noise')">
+                    <input type="text" id="problemSearchNp" class="np-text" placeholder="विशेष समस्याहरू खोज्नुहोस् (उदाहरण: 'इन्जिन ओभरहिटिङ', 'ब्रेक आवाज')">
+                </div>
+                <div id="searchResults" class="search-results"></div>
+            </div>
+            
+            <div class="vehicle-tabs">
+                <button class="tab-button active" data-tab="car">
+                    <span class="en-text">Car Problems</span>
+                    <span class="np-text">कार समस्याहरू</span>
+                </button>
+                <button class="tab-button" data-tab="bus">
+                    <span class="en-text">Bus Problems</span>
+                    <span class="np-text">बस समस्याहरू</span>
+                </button>
+                <button class="tab-button" data-tab="bike">
+                    <span class="en-text">Bike Problems</span>
+                    <span class="np-text">बाइक समस्याहरू</span>
+                </button>
+            </div>
+            
+            <!-- Car Problems Tab -->
+            <div class="tab-content active" id="car-tab">
+                <!-- Engine Problems -->
+                <div class="problem-accordion">
+                    <div class="accordion-header">
+                        <span class="urgency-badge high-urgency">
+                            <span class="en-text">High Urgency</span>
+                            <span class="np-text">उच्च आवश्यकता</span>
+                        </span>
+                        <h4 class="en-text">Engine Overheating</h4>
+                        <h4 class="np-text">इन्जिन ओभरहिटिङ</h4>
+                        <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="problem-details">
+                            <div class="detail-box">
+                                <h5><i class="fas fa-exclamation-circle"></i> <span class="en-text">Common Causes</span><span class="np-text">साधारण कारणहरू</span></h5>
+                                <ul>
+                                    <li class="en-text">Low coolant level or coolant leak</li>
+                                    <li class="np-text">कम कूलेंट स्तर वा कूलेंट लिक</li>
+                                    
+                                    <li class="en-text">Faulty thermostat</li>
+                                    <li class="np-text">गलत थर्मोस्ट्याट</li>
+                                    
+                                    <li class="en-text">Radiator blockage or malfunction</li>
+                                    <li class="np-text">रेडिएटर ब्लकेज वा खराबी</li>
+                                    
+                                    <li class="en-text">Water pump failure</li>
+                                    <li class="np-text">पानी पम्प असफलता</li>
+                                    
+                                    <li class="en-text">Broken cooling fan</li>
+                                    <li class="np-text">टुटिएको कूलिङ फ्यान</li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <h5><i class="fas fa-tools"></i> <span class="en-text">DIY Solutions</span><span class="np-text">DIY समाधान</span></h5>
+                                <p class="en-text"><strong>Immediate Action:</strong></p>
+                                <p class="np-text"><strong>तत्काल कारबाही:</strong></p>
+                                <ul>
+                                    <li class="en-text">Turn off AC, turn on heater to max</li>
+                                    <li class="np-text">AC बन्द गर्नुहोस्, हिटर अधिकतममा खोल्नुहोस्</li>
+                                    
+                                    <li class="en-text">Pull over safely, turn off engine</li>
+                                    <li class="np-text">सुरक्षित ठाउँमा रोक्नुहोस्, इन्जिन बन्द गर्नुहोस्</li>
+                                    
+                                    <li class="en-text">Let engine cool for 30+ minutes</li>
+                                    <li class="np-text">इन्जिन ३०+ मिनेट सम्म चिसो हुन दिनुहोस्</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="solution-steps">
+                            <h5><i class="fas fa-list-ol"></i> <span class="en-text">Step-by-Step Solution</span><span class="np-text">कदम-दर-कदम समाधान</span></h5>
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div>
+                                    <strong class="en-text">Safety First:</strong><span class="en-text"> Turn off engine immediately, open hood for ventilation</span>
+                                    <strong class="np-text">सुरक्षा पहिलो:</strong><span class="np-text"> तुरुन्तै इन्जिन बन्द गर्नुहोस्, भेन्टिलेशनको लागि हुड खोल्नुहोस्</span>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div>
+                                    <strong class="en-text">Cooling:</strong><span class="en-text"> Wait minimum 30 minutes before checking coolant</span>
+                                    <strong class="np-text">चिसो पार्नु:</strong><span class="np-text"> कूलेंट जाँच गर्नु अघि कम्तिमा ३० मिनेट पर्खनुहोस्</span>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div>
+                                    <strong class="en-text">Professional Help:</strong><span class="en-text"> Visit workshop for pressure test and repair</span>
+                                    <strong class="np-text">पेशेवर सहायता:</strong><span class="np-text"> प्रेशर टेस्ट र मर्मतको लागि वर्कशप भ्रमण गर्नुहोस्</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional accordions would follow similar pattern -->
+                <!-- Due to space constraints, showing only one example -->
+            </div>
+            
+            <!-- Emergency Banner -->
+            <div class="emergency-banner">
+                <h3><i class="fas fa-ambulance"></i> <span class="en-text">EMERGENCY SERVICE AVAILABLE</span><span class="np-text">आपतकालीन सेवा उपलब्ध</span></h3>
+                <p class="en-text">If you have a serious vehicle problem that requires immediate attention, call our emergency hotline:</p>
+                <p class="np-text">यदि तपाईंसँग गम्भीर सवारी समस्या छ जसलाई तत्काल ध्यान चाहिन्छ, हाम्रो आपतकालीन हटलाइनमा कल गर्नुहोस्:</p>
+                <p style="font-size: 1.5rem; font-weight: bold; margin: 10px 0;">
+                    <i class="fas fa-phone"></i> 9862790956 (24/7)
+                </p>
+                <p class="en-text">Roadside assistance • Tow service • Emergency repairs</p>
+                <p class="np-text">सडक किनार सहायता • टो सेवा • आपतकालीन मर्मत</p>
+            </div>
+            
+            <!-- Quick Solutions Widget -->
+            <div class="quick-solutions-widget" id="quick-solutions">
+                <h3 style="text-align: center; margin-bottom: 30px; color: var(--nepali-red);">
+                    <i class="fas fa-comment-medical"></i> <span class="en-text">Quick Problem Solver</span><span class="np-text" style="display: none;">द्रुत समस्या समाधानकर्ता</span>
+                </h3>
+                
+                <div class="solution-form">
+                    <div class="form-group">
+                        <label for="vehicleType"><i class="fas fa-car"></i> <span class="en-text">Vehicle Type</span><span class="np-text" style="display: none;">सवारी प्रकार</span></label>
+                        <select id="vehicleType">
+                            <option class="en-text" value="car">Car/Jeep/Van</option>
+                            <option class="np-text" value="car" style="display: none;">कार/जीप/भ्यान</option>
+                            <option class="en-text" value="bus">Bus/Truck</option>
+                            <option class="np-text" value="bus" style="display: none;">बस/ट्रक</option>
+                            <option class="en-text" value="bike">Bike/Scooter</option>
+                            <option class="np-text" value="bike" style="display: none;">बाइक/स्कूटर</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="problemType"><i class="fas fa-exclamation-triangle"></i> <span class="en-text">Problem Type</span><span class="np-text" style="display: none;">समस्या प्रकार</span></label>
+                        <select id="problemType">
+                            <option class="en-text" value="engine">Engine Issues</option>
+                            <option class="np-text" value="engine" style="display: none;">इन्जिन समस्याहरू</option>
+                            <option class="en-text" value="electrical">Electrical Problems</option>
+                            <option class="np-text" value="electrical" style="display: none;">बिजुली समस्याहरू</option>
+                            <option class="en-text" value="brakes">Brake Issues</option>
+                            <option class="np-text" value="brakes" style="display: none;">ब्रेक समस्याहरू</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" style="grid-column: span 2;">
+                        <label for="problemDescription"><i class="fas fa-file-alt"></i> <span class="en-text">Describe Your Problem</span><span class="np-text" style="display: none;">आफ्नो समस्या वर्णन गर्नुहोस्</span></label>
+                        <textarea id="problemDescription" class="en-text" placeholder="Describe your vehicle problem in detail... Include symptoms, sounds, and when it happens."></textarea>
+                        <textarea id="problemDescriptionNp" class="np-text" style="display: none;" placeholder="आफ्नो सवारी समस्या विस्तारमा वर्णन गर्नुहोस्... लक्षणहरू, आवाजहरू, र यो कहिले हुन्छ भन्ने समावेश गर्नुहोस्।"></textarea>
+                    </div>
+                    
+                    <button class="cta-button" onclick="getQuickSolution()" style="grid-column: span 2;">
+                        <i class="fas fa-lightbulb"></i>
+                        <span class="en-text">Get Quick Solution</span>
+                        <span class="np-text">द्रुत समाधान प्राप्त गर्नुहोस्</span>
+                    </button>
+                </div>
+                
+                <div class="solution-result" id="solutionResult">
+                    <h4><i class="fas fa-check-circle"></i> <span class="en-text">Recommended Solutions</span><span class="np-text">सिफारिस गरिएका समाधानहरू</span></h4>
+                    <div id="solutionContent" class="solution-list">
+                        <!-- Solutions will be inserted here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="en-text">About Us</h2>
+                <h2 class="np-text" style="display: none;">हाम्रो बारेमा</h2>
+                
+                <div style="margin-bottom: 25px;"></div> <!-- Added one row gap -->
+                
+                <p class="en-text">Professional automotive solutions in Surkhet, Nepal</p>
+                <p class="np-text" style="display: none;">सुर्खेत, नेपालमा पेशेवर स्वचालित समाधान</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="workshop-info">
+                    <div class="workshop-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3>Sagar Gautam</h3>
+                    <!-- CHANGED: Chief Engineer to Head Technician -->
+                    <p class="en-text">Director & Head Technician</p>
+                    <p class="np-text" style="display: none;">निर्देशक र मुख्य प्राविधिक</p>
+                    <!-- CHANGED: Removed experience mention -->
+                    <p class="en-text">Sagar Gautam leads our team of skilled technicians with expertise in automotive repair and engineering. His knowledge covers all vehicle types commonly found on Nepalese roads.</p>
+                    <p class="np-text" style="display: none;">सागर गौतमले हाम्रो कुशल प्राविधिकहरूको टोमलाई नेतृत्व गर्छन् र स्वचालित मर्मत र इन्जिनियरिङमा विशेषज्ञता राख्छन्। उनको ज्ञानले नेपाली सडकहरूमा सामान्यतया पाइने सबै प्रकारका सवारी साधनहरू समेट्छ।</p>
+                </div>
+                
+                <div>
+                    <h3 class="en-text">Our Workshop</h3>
+                    <h3 class="np-text" style="display: none;">हाम्रो वर्कशप</h3>
+                    <p class="en-text">Sagar Auto Care is a state-of-the-art automotive repair and engineering workshop located in Birendranagar, Surkhet. We specialize in diagnosing and repairing complex vehicle problems for cars, buses, and bikes.</p>
+                    <p class="np-text" style="display: none;">सागर अटो केयर सुर्खेतको वीरेन्द्रनगरमा अवस्थित अत्याधुनिक स्वचालित मर्मत र इन्जिनियरिङ वर्कशप हो। हामी कार, बस, र बाइकहरूको लागि जटिल सवारी समस्याहरू डायग्नोसिस गर्न र मर्मत गर्न विशेषज्ञ छौं।</p>
+                    
+                    <div class="location-map" id="contact">
+                        <div id="map"></div>
+                        <div class="map-overlay">
+                            <h3 class="en-text">Visit Our Workshop</h3>
+                            <h3 class="np-text" style="display: none;">हाम्रो वर्कशप भ्रमण गर्नुहोस्</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> <span class="en-text">Birendranagar 08, Dhamala Chowk, Surkhet, Nepal</span><span class="np-text" style="display: none;">वीरेन्द्रनगर ०८, धमलाचोक, सुर्खेत, नेपाल</span></p>
+                            <p><i class="fas fa-phone"></i> 9862790956</p>
+                            <p><i class="fas fa-envelope"></i> gautamsilendra@gmail.com</p>
+                            <p><i class="fas fa-clock"></i> <span class="en-text">Open 7AM-7PM (Emergency 24/7)</span><span class="np-text" style="display: none;">खुल्ने समय: ७ बिहान - ७ बेलुकी (आपतकालीन २४/७)</span></p>
+                            <button class="cta-button" onclick="openGoogleMaps()" style="margin-top: 15px;">
+                                <i class="fas fa-directions"></i>
+                                <span class="en-text">Open in Google Maps</span>
+                                <span class="np-text" style="display: none;">गुगल म्याप्समा खोल्नुहोस्</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Modal -->
+    <div class="modal-overlay" id="appointmentModal">
+        <div class="appointment-modal">
+            <div class="modal-header">
+                <h3 class="en-text">Book Appointment</h3>
+                <h3 class="np-text" style="display: none;">अपोइन्टमेन्ट बुक गर्नुहोस्</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="appointmentForm">
+                    <div class="form-group">
+                        <label for="appointmentName" class="en-text">Full Name</label>
+                        <label for="appointmentName" class="np-text" style="display: none;">पूरा नाम</label>
+                        <input type="text" id="appointmentName" required class="en-text" placeholder="Enter your full name">
+                        <input type="text" id="appointmentNameNp" required class="np-text" style="display: none;" placeholder="आफ्नो पूरा नाम प्रविष्ट गर्नुहोस्">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointmentPhone" class="en-text">Phone Number</label>
+                        <label for="appointmentPhone" class="np-text" style="display: none;">फोन नम्बर</label>
+                        <input type="tel" id="appointmentPhone" required class="en-text" placeholder="Enter your phone number">
+                        <input type="tel" id="appointmentPhoneNp" required class="np-text" style="display: none;" placeholder="आफ्नो फोन नम्बर प्रविष्ट गर्नुहोस्">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointmentVehicle" class="en-text">Vehicle Type</label>
+                        <label for="appointmentVehicle" class="np-text" style="display: none;">सवारी प्रकार</label>
+                        <select id="appointmentVehicle" required>
+                            <option class="en-text" value="">Select Vehicle</option>
+                            <option class="np-text" value="" style="display: none;">सवारी छान्नुहोस्</option>
+                            <option class="en-text" value="car">Car/Jeep/Van</option>
+                            <option class="np-text" value="car" style="display: none;">कार/जीप/भ्यान</option>
+                            <option class="en-text" value="bus">Bus/Truck</option>
+                            <option class="np-text" value="bus" style="display: none;">बस/ट्रक</option>
+                            <option class="en-text" value="bike">Bike/Scooter</option>
+                            <option class="np-text" value="bike" style="display: none;">बाइक/स्कूटर</option>
+                            <option class="en-text" value="tractor">Tractor</option>
+                            <option class="np-text" value="tractor" style="display: none;">ट्र्याक्टर</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointmentService" class="en-text">Required Service</label>
+                        <label for="appointmentService" class="np-text" style="display: none;">आवश्यक सेवा</label>
+                        <select id="appointmentService" required>
+                            <option class="en-text" value="">Select Service</option>
+                            <option class="np-text" value="" style="display: none;">सेवा छान्नुहोस्</option>
+                            <option class="en-text" value="engine">Engine Repair</option>
+                            <option class="np-text" value="engine" style="display: none;">इन्जिन मर्मत</option>
+                            <option class="en-text" value="electrical">Electrical Diagnostics</option>
+                            <option class="np-text" value="electrical" style="display: none;">बिजुली डायग्नोस्टिक्स</option>
+                            <option class="en-text" value="suspension">Suspension Work</option>
+                            <option class="np-text" value="suspension" style="display: none;">सस्पेन्सन काम</option>
+                            <option class="en-text" value="servicing">Car Servicing</option>
+                            <option class="np-text" value="servicing" style="display: none;">कार सेवा</option>
+                            <option class="en-text" value="emergency">Emergency Repair</option>
+                            <option class="np-text" value="emergency" style="display: none;">आपतकालीन मर्मत</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointmentDate" class="en-text">Preferred Date</label>
+                        <label for="appointmentDate" class="np-text" style="display: none;">रुचाइएको मिति</label>
+                        <input type="date" id="appointmentDate" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointmentTime" class="en-text">Preferred Time</label>
+                        <label for="appointmentTime" class="np-text" style="display: none;">रुचाइएको समय</label>
+                        <select id="appointmentTime" required>
+                            <option class="en-text" value="">Select Time</option>
+                            <option class="np-text" value="" style="display: none;">समय छान्नुहोस्</option>
+                            <option class="en-text" value="morning">Morning (7 AM - 12 PM)</option>
+                            <option class="np-text" value="morning" style="display: none;">बिहान (७ बिहान - १२ बिहान)</option>
+                            <option class="en-text" value="afternoon">Afternoon (12 PM - 5 PM)</option>
+                            <option class="np-text" value="afternoon" style="display: none;">दिउँसो (१२ बिहान - ५ बेलुकी)</option>
+                            <option class="en-text" value="evening">Evening (5 PM - 7 PM)</option>
+                            <option class="np-text" value="evening" style="display: none;">बेलुका (५ बेलुकी - ७ बेलुकी)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointmentMessage" class="en-text">Problem Description</label>
+                        <label for="appointmentMessage" class="np-text" style="display: none;">समस्या वर्णन</label>
+                        <textarea id="appointmentMessage" rows="4" class="en-text" placeholder="Describe your vehicle problem in detail..."></textarea>
+                        <textarea id="appointmentMessageNp" rows="4" class="np-text" style="display: none;" placeholder="आफ्नो सवारी समस्या विस्तारमा वर्णन गर्नुहोस्..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-calendar-check"></i>
+                        <span class="en-text">Book Appointment Now</span>
+                        <span class="np-text" style="display: none;">अहिले अपोइन्टमेन्ट बुक गर्नुहोस्</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Contact Bubble -->
+    <div class="quick-contact">
+        <div class="contact-bubble" onclick="showContactOptions()">
+            <i class="fas fa-headset"></i>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="en-text">Sagar Auto Care</h3>
+                    <h3 class="np-text" style="display: none;">सागर अटो केयर</h3>
+                    <p class="en-text">Professional automobile repair and engineering workshop in Surkhet, Nepal. We provide comprehensive solutions for cars, buses, and bikes.</p>
+                    <p class="np-text" style="display: none;">सुर्खेत, नेपालमा पेशेवर स्वचालित मर्मत र इन्जिनियरिङ वर्कशप। हामी कार, बस, र बाइकहरूको लागि व्यापक समाधान प्रदान गर्छौं।</p>
+                    <div class="social-icons">
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/9779862790956" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="tel:9862790956"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="en-text">Contact Info</h3>
+                    <h3 class="np-text" style="display: none;">सम्पर्क जानकारी</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <span class="en-text">Birendranagar 08, Dhamala Chowk, Surkhet</span><span class="np-text" style="display: none;">वीरेन्द्रनगर ०८, धमलाचोक, सुर्खेत</span></p>
+                    <p><i class="fas fa-phone"></i> 9862790956 (24/7)</p>
+                    <p><i class="fas fa-envelope"></i> gautamsilendra@gmail.com</p>
+                    <p><i class="fas fa-user"></i> <span class="en-text">Director: Sagar Gautam</span><span class="np-text" style="display: none;">निर्देशक: सागर गौतम</span></p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="en-text">Business Hours</h3>
+                    <h3 class="np-text" style="display: none;">व्यापारिक समय</h3>
+                    <p class="en-text">Sunday - Friday: 7:00 AM - 7:00 PM</p>
+                    <p class="np-text" style="display: none;">आइतबार - शुक्रबार: ७:०० बिहान - ७:०० बेलुकी</p>
+                    <p class="en-text">Saturday: 8:00 AM - 5:00 PM</p>
+                    <p class="np-text" style="display: none;">शनिबार: ८:०० बिहान - ५:०० बेलुकी</p>
+                    <p class="en-text">Emergency Services: Available 24/7</p>
+                    <p class="np-text" style="display: none;">आपतकालीन सेवाहरू: २४/७ उपलब्ध</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="en-text">Quick Links</h3>
+                    <h3 class="np-text" style="display: none;">द्रुत लिंकहरू</h3>
+                    <ul>
+                        <li><a href="#home" class="footer-link">
+                            <span class="en-text">Home</span><span class="np-text">गृहपृष्ठ</span>
+                        </a></li>
+                        <li><a href="#services" class="footer-link">
+                            <span class="en-text">Services</span><span class="np-text">सेवाहरू</span>
+                        </a></li>
+                        <li><a href="#problems-solutions" class="footer-link">
+                            <span class="en-text">Problems & Solutions</span><span class="np-text">समस्याहरू र समाधान</span>
+                        </a></li>
+                        <li><a href="#about" class="footer-link">
+                            <span class="en-text">About Us</span><span class="np-text">हाम्रो बारेमा</span>
+                        </a></li>
+                        <li><a href="#" onclick="openAppointmentModal()" class="footer-link book-appointment">
+                            <i class="fas fa-calendar-alt"></i> <span class="en-text">Book Appointment</span><span class="np-text" style="display: none;">अपोइन्टमेन्ट बुक गर्नुहोस्</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <!-- CHANGED: Updated copyright year for new website -->
+                <p>&copy; 2024 Sagar Auto Care. <span class="en-text">All Rights Reserved.</span><span class="np-text" style="display: none;">सर्वाधिकार सुरक्षित।</span> | <span class="en-text">Designed for Nepalese Automotive Needs</span><span class="np-text" style="display: none;">नेपाली स्वचालित आवश्यकताहरूको लागि डिजाइन गरिएको</span></p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+        
+        
+        
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
